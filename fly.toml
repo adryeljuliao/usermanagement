@@ -1,19 +1,19 @@
-# fly.toml app configuration file generated for usermanagement-mock-api
+# fly.toml app configuration file - User Management Mock API
 #
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+# Configurado para manter a máquina sempre rodando (dados persistem em memória)
 #
 
-app = "usermanagement-mock-api"
-primary_region = "gru"  # São Paulo (GRU) - você pode mudar para outra região
+app = "usermanagement-tst"
+primary_region = "gru"  # São Paulo (GRU)
 
 [build]
 
 [http_service]
 internal_port = 8080
 force_https = true
-auto_stop_machines = "stop"
+auto_stop_machines = false
 auto_start_machines = true
-min_machines_running = 0
+min_machines_running = 1
 processes = ["app"]
 
 [[vm]]
@@ -29,9 +29,9 @@ SERVER_PORT = "8080"
 protocol = "tcp"
 internal_port = 8080
 processes = ["app"]
-auto_stop_machines = "stop"
+auto_stop_machines = false
 auto_start_machines = true
-min_machines_running = 0
+min_machines_running = 1
 
 [[services.ports]]
 port = 80

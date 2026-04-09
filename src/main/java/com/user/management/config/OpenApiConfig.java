@@ -1,4 +1,4 @@
-package com.project.management.config;
+package com.user.management.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -12,8 +12,9 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Admin User Management API")
+                        .title("User Management Mock API")
                         .version("1.0.0")
-                        .description("Documentação da API do Admin User Management"));
+                        .description("API Mock para gerenciamento de usuários - Dados em memória"));
     }
 }
+

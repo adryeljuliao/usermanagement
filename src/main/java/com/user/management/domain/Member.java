@@ -1,6 +1,6 @@
-package com.project.management.domain;
+package com.user.management.domain;
 
-import com.project.management.domain.enums.Role;
+import com.user.management.domain.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

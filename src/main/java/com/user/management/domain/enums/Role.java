@@ -1,4 +1,4 @@
-package com.project.management.domain.enums;
+package com.user.management.domain.enums;
 
 public enum Role {
     FUNCTIONARY,

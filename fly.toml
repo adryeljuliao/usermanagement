@@ -1,6 +1,6 @@
 # fly.toml app configuration file - User Management Mock API
 #
-# Configurado para manter a máquina sempre rodando (dados persistem em memória)
+# Configurado com auto-stop: dorme após inatividade e acorda ao receber requisição
 #
 
 app = "usermanagement-tst"
@@ -11,9 +11,9 @@ primary_region = "gru"  # São Paulo (GRU)
 [http_service]
 internal_port = 8080
 force_https = true
-auto_stop_machines = false
+auto_stop_machines = true
 auto_start_machines = true
-min_machines_running = 1
+min_machines_running = 0
 processes = ["app"]
 
 [[vm]]
@@ -29,9 +29,9 @@ SERVER_PORT = "8080"
 protocol = "tcp"
 internal_port = 8080
 processes = ["app"]
-auto_stop_machines = false
+auto_stop_machines = true
 auto_start_machines = true
-min_machines_running = 1
+min_machines_running = 0
 
 [[services.ports]]
 port = 80

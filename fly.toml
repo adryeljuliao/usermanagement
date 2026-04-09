@@ -1,17 +1,17 @@
-# fly.toml app configuration file - User Management Mock API
+# fly.toml app configuration file generated for usermanagement-mock-api
 #
-# Configurado com auto-stop: dorme após inatividade e acorda ao receber requisição
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "usermanagement-tst"
-primary_region = "gru"  # São Paulo (GRU)
+app = "usermanagement-mock-api"
+primary_region = "gru"  # São Paulo (GRU) - você pode mudar para outra região
 
 [build]
 
 [http_service]
 internal_port = 8080
 force_https = true
-auto_stop_machines = true
+auto_stop_machines = "stop"
 auto_start_machines = true
 min_machines_running = 0
 processes = ["app"]
@@ -29,7 +29,7 @@ SERVER_PORT = "8080"
 protocol = "tcp"
 internal_port = 8080
 processes = ["app"]
-auto_stop_machines = true
+auto_stop_machines = "stop"
 auto_start_machines = true
 min_machines_running = 0
 

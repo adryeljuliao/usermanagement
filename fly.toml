@@ -1,62 +1,23 @@
-# fly.toml app configuration file generated for usermanagement-mock-api
+# fly.toml app configuration file generated for usermanagement-tst on 2026-04-09T22:35:13Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "usermanagement-mock-api"
-primary_region = "gru"  # São Paulo (GRU) - você pode mudar para outra região
+app = 'usermanagement-tst'
+primary_region = 'iad'
 
 [build]
 
 [http_service]
-internal_port = 8080
-force_https = true
-auto_stop_machines = "stop"
-auto_start_machines = true
-min_machines_running = 0
-processes = ["app"]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
 [[vm]]
-memory = "512mb"
-cpu_kind = "shared"
-cpus = 1
-
-[env]
-SPRING_PROFILES_ACTIVE = "production"
-SERVER_PORT = "8080"
-
-[[services]]
-protocol = "tcp"
-internal_port = 8080
-processes = ["app"]
-auto_stop_machines = "stop"
-auto_start_machines = true
-min_machines_running = 0
-
-[[services.ports]]
-port = 80
-handlers = ["http"]
-force_https = true
-
-[[services.ports]]
-port = 443
-handlers = ["http", "tls"]
-
-[services.concurrency]
-type = "connections"
-hard_limit = 25
-soft_limit = 20
-
-[[services.tcp_checks]]
-interval = "15s"
-timeout = "2s"
-grace_period = "10s"
-
-[[services.http_checks]]
-interval = 10000
-grace_period = "5s"
-method = "get"
-path = "/actuator/health"
-protocol = "http"
-timeout = 2000
-tls_skip_verify = false
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 1024

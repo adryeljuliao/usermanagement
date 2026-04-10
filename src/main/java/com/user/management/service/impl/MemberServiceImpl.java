@@ -24,6 +24,26 @@ public class MemberServiceImpl implements MemberService {
         createInitialMember("Pedro Oliveira", Role.TRAINEE);
         createInitialMember("Ana Costa", Role.FUNCTIONARY);
         createInitialMember("Carlos Pereira", Role.MANAGER);
+        createInitialMember("Lucas Almeida", Role.FUNCTIONARY);
+        createInitialMember("Fernanda Rodrigues", Role.FUNCTIONARY);
+        createInitialMember("Ricardo Souza", Role.FUNCTIONARY);
+        createInitialMember("Juliana Lima", Role.FUNCTIONARY);
+        createInitialMember("Roberto Martins", Role.FUNCTIONARY);
+        createInitialMember("Camila Ferreira", Role.FUNCTIONARY);
+        createInitialMember("Bruno Araújo", Role.FUNCTIONARY);
+        createInitialMember("Patricia Gomes", Role.FUNCTIONARY);
+        createInitialMember("Marcos Barbosa", Role.FUNCTIONARY);
+        createInitialMember("Larissa Monteiro", Role.FUNCTIONARY);
+        createInitialMember("Thiago Cardoso", Role.FUNCTIONARY);
+        createInitialMember("Renata Dias", Role.FUNCTIONARY);
+        createInitialMember("Gabriel Ribeiro", Role.FUNCTIONARY);
+        createInitialMember("Bianca Castro", Role.FUNCTIONARY);
+        createInitialMember("André Mendes", Role.FUNCTIONARY);
+        createInitialMember("Mano Menezes", Role.FUNCTIONARY);
+        createInitialMember("Vinicius Junior", Role.FUNCTIONARY);
+        createInitialMember("Matheus Mendes", Role.FUNCTIONARY);
+        createInitialMember("Luan Mendonça", Role.FUNCTIONARY);
+
     }
 
     private void createInitialMember(String name, Role role) {

@@ -6,6 +6,7 @@ import com.user.management.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,9 +38,16 @@ public class MemberController {
     }
 
     @GetMapping
-    @Operation(summary = "Listar todos os membros", description = "Retorna lista de todos os membros")
-    public ResponseEntity<List<MemberResponse>> getAllMembers() {
-        List<MemberResponse> members = memberService.getAllMembers();
+    @Operation(summary = "Listar todos os membros", description = "Retorna lista de todos os membros ou filtra por IDs específicos (máximo 10 IDs)")
+    public ResponseEntity<List<MemberResponse>> getAllMembers(
+            @RequestParam(value = "ids", required = false)
+            @Size(max = 10, message = "Máximo de 10 IDs permitidos por requisição")
+            List<UUID> ids) {
+
+        List<MemberResponse> members = (ids != null && !ids.isEmpty())
+                ? memberService.getMembersByIds(ids)
+                : memberService.getAllMembers();
+
         return ResponseEntity.ok(members);
     }
 

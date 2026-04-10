@@ -14,6 +14,8 @@ public interface MemberService {
 
     List<MemberResponse> getAllMembers();
 
+    List<MemberResponse> getMembersByIds(List<UUID> ids);
+
     MemberResponse updateMember(UUID id, MemberRequest request);
 
     void deleteMember(UUID id);

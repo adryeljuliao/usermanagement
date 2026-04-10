@@ -1,6 +1,6 @@
 package com.user.management.domain;
 
-import com.user.management.domain.enums.Role;
+import com.user.management.domain.enums.EmploymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +16,6 @@ public class Member {
 
     private UUID id;
     private String name;
-    private Role role;
+    private EmploymentStatus employmentStatus;
 
 }

@@ -1,6 +1,6 @@
 package com.user.management.dto.request;
 
-import com.user.management.domain.enums.Role;
+import com.user.management.domain.enums.EmploymentStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -9,6 +9,6 @@ public record MemberRequest(
         String name,
 
         @NotNull(message = "Role is required")
-        Role role
+        EmploymentStatus employmentStatus
 ) {
 }

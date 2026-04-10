@@ -62,7 +62,7 @@ Content-Type: application/json
 
 {
   "name": "João Silva",
-  "role": "MANAGER"
+  "employmentStatus": "MANAGER"
 }
 ```
 
@@ -83,7 +83,7 @@ Content-Type: application/json
 
 {
   "name": "João Silva Atualizado",
-  "role": "FUNCTIONARY"
+  "employmentStatus": "FUNCTIONARY"
 }
 ```
 
@@ -119,7 +119,7 @@ curl http://localhost:8080/api/members
 ```powershell
 curl -X POST http://localhost:8080/api/members `
   -H "Content-Type: application/json" `
-  -d '{\"name\":\"Teste Usuario\",\"role\":\"TRAINEE\"}'
+  -d '{\"name\":\"Teste Usuario\",\"employmentStatus\":\"TRAINEE\"}'
 ```
 
 ### Buscar membro por ID (substitua {id} por um UUID válido)
@@ -131,7 +131,7 @@ curl http://localhost:8080/api/members/{id}
 ```powershell
 curl -X PUT http://localhost:8080/api/members/{id} `
   -H "Content-Type: application/json" `
-  -d '{\"name\":\"Nome Atualizado\",\"role\":\"MANAGER\"}'
+  -d '{\"name\":\"Nome Atualizado\",\"employmentStatus\":\"MANAGER\"}'
 ```
 
 ### Deletar membro
@@ -164,7 +164,7 @@ src/main/java/com/project/management/
 
 ### MemberRequest
 - `name`: Obrigatório (não pode ser vazio)
-- `role`: Obrigatório (deve ser um dos valores do enum Role)
+- `employmentStatus`: Obrigatório (deve ser um dos valores do enum Role)
 
 ## 🛠️ Build
 

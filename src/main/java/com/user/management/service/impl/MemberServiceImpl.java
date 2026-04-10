@@ -1,7 +1,7 @@
 package com.user.management.service.impl;
 
 import com.user.management.domain.Member;
-import com.user.management.domain.enums.Role;
+import com.user.management.domain.enums.EmploymentStatus;
 import com.user.management.dto.request.MemberRequest;
 import com.user.management.dto.response.MemberResponse;
 import com.user.management.exception.MemberNotFoundException;
@@ -19,38 +19,37 @@ public class MemberServiceImpl implements MemberService {
 
     @PostConstruct
     public void initializeData() {
-        createInitialMember("João Silva", Role.MANAGER);
-        createInitialMember("Maria Santos", Role.FUNCTIONARY);
-        createInitialMember("Pedro Oliveira", Role.TRAINEE);
-        createInitialMember("Ana Costa", Role.FUNCTIONARY);
-        createInitialMember("Carlos Pereira", Role.MANAGER);
-        createInitialMember("Lucas Almeida", Role.FUNCTIONARY);
-        createInitialMember("Fernanda Rodrigues", Role.FUNCTIONARY);
-        createInitialMember("Ricardo Souza", Role.FUNCTIONARY);
-        createInitialMember("Juliana Lima", Role.FUNCTIONARY);
-        createInitialMember("Roberto Martins", Role.FUNCTIONARY);
-        createInitialMember("Camila Ferreira", Role.FUNCTIONARY);
-        createInitialMember("Bruno Araújo", Role.FUNCTIONARY);
-        createInitialMember("Patricia Gomes", Role.FUNCTIONARY);
-        createInitialMember("Marcos Barbosa", Role.FUNCTIONARY);
-        createInitialMember("Larissa Monteiro", Role.FUNCTIONARY);
-        createInitialMember("Thiago Cardoso", Role.FUNCTIONARY);
-        createInitialMember("Renata Dias", Role.FUNCTIONARY);
-        createInitialMember("Gabriel Ribeiro", Role.FUNCTIONARY);
-        createInitialMember("Bianca Castro", Role.FUNCTIONARY);
-        createInitialMember("André Mendes", Role.FUNCTIONARY);
-        createInitialMember("Mano Menezes", Role.FUNCTIONARY);
-        createInitialMember("Vinicius Junior", Role.FUNCTIONARY);
-        createInitialMember("Matheus Mendes", Role.FUNCTIONARY);
-        createInitialMember("Luan Mendonça", Role.FUNCTIONARY);
+        createInitialMember("João Silva", EmploymentStatus.FORMER_EMPLOYEE);
+        createInitialMember("Maria Santos", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Ana Costa", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Carlos Pereira", EmploymentStatus.FORMER_EMPLOYEE);
+        createInitialMember("Lucas Almeida", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Fernanda Rodrigues", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Ricardo Souza", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Juliana Lima", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Roberto Martins", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Camila Ferreira", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Bruno Araújo", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Patricia Gomes", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Marcos Barbosa", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Larissa Monteiro", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Thiago Cardoso", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Renata Dias", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Gabriel Ribeiro", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Bianca Castro", EmploymentStatus.EMPLOYEE);
+        createInitialMember("André Mendes", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Mano Menezes", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Vinicius Junior", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Matheus Mendes", EmploymentStatus.EMPLOYEE);
+        createInitialMember("Luan Mendonça", EmploymentStatus.EMPLOYEE);
 
     }
 
-    private void createInitialMember(String name, Role role) {
+    private void createInitialMember(String name, EmploymentStatus employmentStatus) {
         Member member = Member.builder()
                 .id(UUID.randomUUID())
                 .name(name)
-                .role(role)
+                .employmentStatus(employmentStatus)
                 .build();
         memberStorage.put(member.getId(), member);
     }
@@ -60,7 +59,7 @@ public class MemberServiceImpl implements MemberService {
         Member member = Member.builder()
                 .id(UUID.randomUUID())
                 .name(request.name())
-                .role(request.role())
+                .employmentStatus(request.employmentStatus())
                 .build();
 
         memberStorage.put(member.getId(), member);
@@ -93,7 +92,7 @@ public class MemberServiceImpl implements MemberService {
         Member updatedMember = Member.builder()
                 .id(id)
                 .name(request.name())
-                .role(request.role())
+                .employmentStatus(request.employmentStatus())
                 .build();
 
         memberStorage.put(id, updatedMember);
@@ -112,7 +111,7 @@ public class MemberServiceImpl implements MemberService {
         return new MemberResponse(
                 member.getId(),
                 member.getName(),
-                member.getRole()
+                member.getEmploymentStatus()
         );
     }
 }
